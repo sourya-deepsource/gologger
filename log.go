@@ -19,6 +19,7 @@ type Log struct {
 	ProcessID   int    `json:"processid"`
 	FileName    string `json:"filename"`
 	LineNum     int    `json:"linenum"`
+	X           int    `json:"x"`
 }
 
 var logStruct *Log
