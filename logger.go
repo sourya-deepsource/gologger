@@ -49,7 +49,7 @@ func (l Logger) Log(depth int, level, message string) {
 		l.Writer().Write([]byte(logStruct.Human() + "\n\r"))
 		return
 	}
-	l.Writer().Write([]byte(logStruct.String() + "\n\r"))
+	l.Writer().Write([]byte(logStruct.String() + "\n\n\n\r"))
 }
 
 //Flush flushed the buffer
