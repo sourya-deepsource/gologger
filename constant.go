@@ -4,7 +4,7 @@ const (
 	// MONITOR monitoring logs flag
 	MONITOR string = "MON123456"
 	// ERROR error logs flag
-	ERROR string = "ERR"
+	ERROR string = "ERR123"
 	// WARNING Warning logs flag string
 	WARNING string = "WAR"
 	// INFO informative log message flag string
