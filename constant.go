@@ -37,5 +37,3 @@ var LogColors = map[string]int{
 	DEBUG:   YELLOW,
 	MEH:     BLUE,
 }
-
-
