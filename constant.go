@@ -2,7 +2,7 @@ package logger
 
 const (
 	// MONITOR monitoring logs flag
-	MONITOR string = "MON"
+	MONITOR string = "MON123"
 	// ERROR error logs flag
 	ERROR string = "ERR"
 	// WARNING Warning logs flag string
