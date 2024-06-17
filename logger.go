@@ -10,7 +10,7 @@ import (
 	"strings"
 )
 
-//Logger struct to hold the log level and the Writer
+// Logger struct to hold the log level and the Writer
 type Logger struct {
 	LogLevel        int
 	BufferSizeBytes int
@@ -22,17 +22,17 @@ type Logger struct {
 
 var _logger *Logger
 
-//SetLogType sets the log type
-//This is more like a lable saying the type of log
-//some possible log types would be application,error,
+// SetLogType sets the log type
+// This is more like a lable saying the type of log
+// some possible log types would be application,error,
 func (l *Logger) SetLogType(logType string) *Logger {
 	l.LogType = logType
 	return l
 }
 
-//Log given the stack depth and level with an array of messages
-//decides if to be Written to logs ans writes to log with FileName and LineNum
-//taken from runtime Info
+// Log given the stack depth and level with an array of messages
+// decides if to be Written to logs ans writes to log with FileName and LineNum
+// taken from runtime Info
 func (l Logger) Log(depth int, level, message string) {
 	level = strings.ToUpper(level)
 	if levelPriority, ok := LogLevels[level]; ok && levelPriority > l.LogLevel {
@@ -52,7 +52,7 @@ func (l Logger) Log(depth int, level, message string) {
 	l.Writer().Write([]byte(logStruct.String() + "\n\n\n\r"))
 }
 
-//Flush flushed the buffer
+// Flush flushed the buffer
 func (l Logger) Flush() {
 	if writer, ok := l.bufferedWriter.(*bufio.Writer); ok {
 		fmt.Println("Flushing log buffer")
@@ -62,7 +62,7 @@ func (l Logger) Flush() {
 	}
 }
 
-//SetBufferSize sets buffer size as bytes
+// SetBufferSize sets buffer size as bytes
 func (l *Logger) SetBufferSize(bufferSizeBytes int) (err error) {
 	l.BufferSizeBytes = bufferSizeBytes
 	l.bufferedWriter = l.writer
@@ -72,12 +72,12 @@ func (l *Logger) SetBufferSize(bufferSizeBytes int) (err error) {
 	return nil
 }
 
-//Writer returns writer to be used
+// Writer returns writer to be used
 func (l *Logger) Writer() io.Writer {
 	return l.bufferedWriter
 }
 
-//SetLogWriter sets default  writer
+// SetLogWriter sets default  writer
 func (l *Logger) SetLogWriter(writer io.Writer) error {
 	if writer == nil {
 		return errors.New("Nil writer")
