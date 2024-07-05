@@ -25,7 +25,7 @@ const (
 	MAGENTA
 )
 
-//LogLevels defines loglevel priorities  0 highest and 3 lowest
+// LogLevels defines loglevel priorities  0 highest and 3 lowest
 var LogLevels = map[string]int{MONITOR: 0, ERROR: 1, WARNING: 2, INFO: 3, DEBUG: 4}
 
 // LogColors is map of log level to color
@@ -37,5 +37,3 @@ var LogColors = map[string]int{
 	DEBUG:   YELLOW,
 	MEH:     BLUE,
 }
-
-
