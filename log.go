@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-//Log defines the structure of the log message or the log format
+// Log defines the structure of the log message or the log format
 type Log struct {
 	ProcessName string `json:"service"`
 	LogType     string `json:"logtype"`
@@ -18,13 +18,13 @@ type Log struct {
 	Level       string `json:"loglevel"`
 	ProcessID   int    `json:"processid"`
 	FileName    string `json:"filename"`
-	LineNum     int    `json:"linenum"`
+	LineNum     int    `json:"linenm"`
 }
 
 var logStruct *Log
 
-//GetLog returns log struct
-//GetLog returns the log struct with essential common data filled in
+// GetLog returns log struct
+// GetLog returns the log struct with essential common data filled in
 func GetLog() Log {
 	if logStruct == nil {
 		logStruct = new(Log)
@@ -36,8 +36,8 @@ func GetLog() Log {
 	return *logStruct
 }
 
-//String implements Stringer interface
-//json encode the object and returns
+// String implements Stringer interface
+// json encode the object and returns
 func (log Log) String() string {
 	marshalledData, err := json.Marshal(&log)
 	if err != nil {
@@ -60,8 +60,8 @@ func fileNameColor() int {
 	return WHITE
 }
 
-//Human returns human readable log  string
-///Here the filename is going to be just to
+// Human returns human readable log  string
+// /Here the filename is going to be just to
 func (log Log) Human() string {
 	fileArray := strings.Split(log.FileName, string(os.PathSeparator))
 	fileName := strings.Join(fileArray[len(fileArray)-2:], string(os.PathSeparator))
